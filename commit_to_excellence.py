@@ -5,11 +5,11 @@ import os
 
 @click.group()
 def cte():
-    pass
+    click.echo("")
 
 
 def model_api_call():
-    return "AI generated message"
+    return "This is your commit message :)"
 
 
 # List of files that the user wants to commit
@@ -114,32 +114,26 @@ def commit(message):
     index.commit(message)
 
 
-
 @cte.command()
-def ai_commit():
+def aicommit():
     repo_path = find_git_directory()
     repo = git.Repo(f'{repo_path}')
     index = repo.index
     index.commit("")
-
     commit_hash = get_last_commit_hash()
-
     commit = repo.commit(commit_hash)
-
     new_message = model_api_call()
-
     confirmation = click.confirm(f'''
                  AI generated message:
 
                  {new_message}
 
-                 Do you want to commit your file with this message? (y/N)
+                 Do you want to commit your file with this message?
 
                  ''')
-
     if confirmation:
         repo.git.commit(
-            '--amend', '-C', commit_hash, '-m', new_message, author=commit.author
+            '--amend', '-C', commit_hash, author=commit.author
         )
     else:
         click.prompt('Please type int your new message: ', type=str)
@@ -165,6 +159,7 @@ def push(remote, branch):
 
 @cte.command()
 def get_diff():
+    '''Simple program to get staged file info'''
 
     repo = connect_py()
     index = repo.index

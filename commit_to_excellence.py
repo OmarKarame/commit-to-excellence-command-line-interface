@@ -180,8 +180,7 @@ def smartcommit():
         new_message = click.prompt('Please type in your new message: ', type=str)
         repo.git.commit('--amend' ,f'-m "{new_message}"')
 
-
-
+# test
 
 
 @cte.command()

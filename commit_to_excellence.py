@@ -154,7 +154,7 @@ def commit(message):
 
 
 @cte.command()
-def aicommit():
+def smartcommit():
     repo_path = find_git_directory()
     repo = git.Repo(f'{repo_path}')
 
@@ -177,7 +177,8 @@ def aicommit():
     if confirmation:
         repo.git.commit('--amend' ,f'-m "{new_message}"')
     else:
-        click.prompt('Please type in your new message: ', type=str)
+        new_message = click.prompt('Please type in your new message: ', type=str)
+        repo.git.commit('--amend' ,f'-m "{new_message}"')
 
 
 

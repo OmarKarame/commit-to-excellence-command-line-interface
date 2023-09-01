@@ -1,0 +1,2 @@
+[console_scripts]
+cte = commit_to_excellence:cte

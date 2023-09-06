@@ -11,12 +11,13 @@ def cte():
 
 def model_api_call(diff):
     # pass the diff into the model as a parameter and return the message
-    url = 'http://localhost:8000/'
+    url = 'https://cte-hctcd2f7fq-ew.a.run.app/predict'
     params = {
         'git_diff': diff
     }
     response = requests.get(url, params = params)
-    return response['prediction']
+    result = response.json()
+    return result['prediction']
 
 
 # List of files that the user wants to commit
@@ -141,11 +142,6 @@ def smartcommit():
     index = repo.index
     cached_diff = index.diff('HEAD')
     new_message = model_api_call(cached_diff)
-
-    # Amend the commit message
-    # commit_hash = get_last_commit_hash()
-    # commit = repo.commit(commit_hash)
-
     confirmation = click.confirm(f'''
                 AI generated message:
 

@@ -1,0 +1,8 @@
+README.md
+setup.py
+commit_to_excellence.egg-info/PKG-INFO
+commit_to_excellence.egg-info/SOURCES.txt
+commit_to_excellence.egg-info/dependency_links.txt
+commit_to_excellence.egg-info/entry_points.txt
+commit_to_excellence.egg-info/requires.txt
+commit_to_excellence.egg-info/top_level.txt

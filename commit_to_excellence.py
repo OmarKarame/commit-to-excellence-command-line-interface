@@ -11,7 +11,7 @@ def cte():
 
 def model_api_call(diff):
     # pass the diff into the model as a parameter and return the message
-    url = 'https://cte-hctcd2f7fq-ew.a.run.app/predict'
+    url = 'https://cte-static-hctcd2f7fq-nw.a.run.app/predict'
     params = {
         'git_diff': diff
     }

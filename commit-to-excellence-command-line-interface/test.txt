@@ -2,3 +2,4 @@ This piece of code is edited to change the functionality of a method from adding
 Testing if the api is working properly
 test
 test
+test

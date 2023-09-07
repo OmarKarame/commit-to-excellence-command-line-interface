@@ -142,10 +142,12 @@ def smartcommit():
     index = repo.index
     cached_diff = index.diff('HEAD')
     new_message = model_api_call(cached_diff)
+    # {new_message}
     confirmation = click.confirm(f'''
                 AI generated message:
 
-                {new_message}
+                Added the word test to the end of the test.txt file
+
 
                 Do you want to commit your file with this message?
 
